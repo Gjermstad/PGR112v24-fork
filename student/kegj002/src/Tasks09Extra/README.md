@@ -6,7 +6,7 @@ Disse oppgavene kan være omfattende og utfordrende, hvor det er viktig å forts
 
 Det er ikke forventet at du klarer alle disse oppgavene til i morgen eller neste uke.
 
-Masse lykke til!
+Masse lykke til! test
 
 ---
 
