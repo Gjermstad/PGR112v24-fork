@@ -10,8 +10,8 @@ public class Customer
 
 
     //# Constructors
-    Customer(int moneyInWallet) {
-        this.wallet = new Wallet(this, moneyInWallet);
+    Customer(int money) {
+        this.wallet = new Wallet(this, money);
         this.cart = new HashMap<>();
     }
 
@@ -21,8 +21,8 @@ public class Customer
         return this.wallet;
     }
 
-    double getBalanceOfWallet() {
-        return this.wallet.getCustomerWalletBalance();
+    int getMoney() {
+        return this.wallet.getMoney();
     }
 
     HashMap<Product, Integer> getShoppingCart() {
@@ -34,8 +34,7 @@ public class Customer
 
 
     //# Methods
-    void removeMoney(double value) {
+    void removeMoney() {
         // TODO
-        getWallet().removeMoneyFromWallet(value);
     }
 }

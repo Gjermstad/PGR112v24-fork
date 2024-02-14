@@ -20,6 +20,7 @@ public class Receipt
         return this.products;
     }
 
+
     //# Methods
     int totalPrice() {
         return 0; // TODO

@@ -6,7 +6,10 @@ public class Main
     public static void main(String[] args) {
         Employee owner = new Employee();
 
-        Store store = new Store("Electro Heaven", owner);
+        Store store = new Store(
+                "Navn på butikken",
+                owner
+        );
 
         Customer customer = new Customer(1000);
 
@@ -18,7 +21,7 @@ public class Main
         boolean success = store.getCashRegister().processCustomer(customer);
 
         //# 4) If the sale is successful,
-        // make sure a receipt is generated and added to the cash register
+        // make sure a receipt generated and added to the cash register
 
         // ---
 

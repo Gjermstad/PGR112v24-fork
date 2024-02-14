@@ -1,23 +1,15 @@
 package kegj002.projects.commerce.warehouse.src;
 
-
-import lectures._03.Person;
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class Store
 {
-    //# Fields
     private Warehouse warehouse;
     private Inventory inventory = new Inventory();
 
-    //# Constructor
+
     Store() {
         this.warehouse = new Warehouse(this);
     }
 
-    //# Getters
     private Warehouse getWarehouse() {
         return this.warehouse;
     }
@@ -26,48 +18,25 @@ public class Store
         return this.getWarehouse().getInventory();
     }
 
-    Inventory getStoreInventory() {
-        return this.inventory;
+
+    void moveProduct(Product product, int quantity) {
+        // TODO flytt varen fra laget til butikken
+        // må sjekke om dette er mulig først
     }
 
-    //# Methods
-    void moveProductFromWarehouseToStore(Product product, int quantity) {
 
-        if (this.getWarehouseInventory().checkIfProductInStock(product) && this.getWarehouseInventory().getAmountOfProductInStock(product) >= quantity) {
-            this.getStoreInventory().addProduct(product, quantity);
-            this.getWarehouseInventory().removeProduct(product, quantity, false);
-            System.out.println("*We moved " + quantity + " of " + product + " from the Warehouse to the Store.*");
-        } else {
-            System.out.println("*ERROR* - " + product + " not available or Insufficient quantity for moving " + quantity + ".");
-        }
-
-    }
-
-    void moveAllProductsFromWarehouseToStore() {
-        HashMap<Product, Integer> wareInventory =  this.getWarehouseInventory().getProducts();
-
-       for (Product product : wareInventory.keySet()) {
-            int quantity = this.getWarehouseInventory().getAmountOfProductInStock(product);
-
-            this.getStoreInventory().addProduct(product, quantity);
-            System.out.println("*We moved " + quantity + " of " + product + " from the Warehouse to the Store.*");
-       }
-
-       System.out.println("*All products moved from Warehouse to the Store.*");
-
-       this.getWarehouseInventory().getProducts().clear();
-
-    }
-
-    double totalWarehouseValue(boolean printEachProduct) {
-        return this.getWarehouseInventory().totalValueOfProductsInInventory(printEachProduct);
+    double totalWarehouseValue() {
+        // TODO regn ut verdien på alle varene på lager
+        return 0;
     }
 
     double totalStoreValue() {
-        return getStoreInventory().totalValueOfProductsInInventory(false);
+        // TODO regn ut verdien på alle varene ute i butikken
+        return 0;
     }
 
+
     double totalValue() {
-        return this.totalWarehouseValue(false) + this.totalStoreValue();
+        return this.totalWarehouseValue() + this.totalStoreValue();
     }
 }

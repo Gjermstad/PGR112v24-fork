@@ -38,7 +38,6 @@ public class CashRegister
 
     //# Methods
     boolean processCustomer(Customer customer) {
-        // TODO Fix processing of customer at cashier
         //# 1) Get total price of all products in cart
 
         //# 2) Check if customer has enough money in wallet
