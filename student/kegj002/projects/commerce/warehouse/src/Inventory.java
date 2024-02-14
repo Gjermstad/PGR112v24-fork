@@ -7,6 +7,7 @@ public class Inventory
 {
     HashMap<Product, Integer> products = new HashMap<>();
 
+    //# Methods
     double valueOfProducts() {
         // TODO regn ut verdien av alle produktene
         return 0;
