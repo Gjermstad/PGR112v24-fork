@@ -1,6 +1,8 @@
 package lectures._12.src;
 
 
+import java.util.Random;
+
 //# Terning
 public class Die
 {
@@ -18,4 +20,9 @@ public class Die
     }
 
     //# Methods
+    public int roll() {
+        Random RNG = new Random();
+
+        return RNG.nextInt(this.getSides()) + 1;
+    }
 }
