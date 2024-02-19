@@ -22,7 +22,7 @@ public class Store
 
     //# Methods
     void moveProduct(Product product, int quantity) {
-        // TODO flytt varen fra laget til butikken
+        // TODO flytt varen fra lageret til butikken
         // må sjekke om dette er mulig først
     }
 
