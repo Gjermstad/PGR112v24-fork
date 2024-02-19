@@ -15,6 +15,23 @@ public class Main
         Product cable = new Product("Belkin cable, 2m", 349);
         Product energyDrink1 = new Product("Red Bull, 0,5l", 24.95);
 
+        store.getWarehouseInventory().addProduct(headphones, 1);
+        store.getWarehouseInventory().addProduct(laptop, 1);
+        store.getWarehouseInventory().addProduct(cellphone, 1);
+        store.getWarehouseInventory().addProduct(charger, 1);
+        store.getWarehouseInventory().addProduct(cable, 1);
+        store.getWarehouseInventory().addProduct(energyDrink1, 10);
+
+        store.getWarehouseInventory().amountOfProducts();
+
+        System.out.println("We sell a product.");
+        store.getWarehouseInventory().removeProduct(energyDrink1, 2);
+
+        store.getWarehouseInventory().amountOfProducts();
+        System.out.println(store.getWarehouseInventory().checkIfProductInStock(laptop));
+        store.getWarehouseInventory().removeProduct(laptop, 1);
+        System.out.println(store.getWarehouseInventory().checkIfProductInStock(laptop));
+
         //# Flytt varer fra lageret til butikken
 
         // Print ut varehusets verdi
