@@ -25,11 +25,20 @@ public class Main
         store.getWarehouseInventory().totalAmountOfProductsInWarehouse();
 
         store.getWarehouseInventory().totalValueOfProductsInWarehouse(false);
+
+        store.getWarehouseInventory().removeProduct(energyDrink1, 2);
+
+        System.out.println("Value of this Warehouse: $" + store.totalWarehouseValue(false));
+
+        store.getWarehouseInventory().removeProduct(energyDrink1, 3);
+
+        System.out.println("Value of this Warehouse: $" + store.totalWarehouseValue(false));
+
         /*
 
 
         System.out.println("We sell a product.");
-        store.getWarehouseInventory().removeProduct(energyDrink1, 2);
+
 
         store.getWarehouseInventory().totalAmountOfProductsInWarehouse();
         System.out.println(store.getWarehouseInventory().checkIfProductInStock(laptop));

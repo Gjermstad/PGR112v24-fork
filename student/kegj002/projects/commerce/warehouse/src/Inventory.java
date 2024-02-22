@@ -29,7 +29,7 @@ public class Inventory
             if (showEachProduct) System.out.println("- We have [" + amountOfProduct + "] of the item " + product.getName() + " worth $" + product.getPrice() + " [subtotal so far: " + totalValue + "].");
         }
 
-        System.out.println("Total value of all products in stock when sold is $" + totalValue);
+        if (showEachProduct) System.out.println("Total value of all products in stock when sold is $" + totalValue);
 
         return totalValue;
     }
@@ -55,8 +55,10 @@ public class Inventory
 
             if (currentProduct.equals(product)) {
 
+                System.out.println("*Updating inventory...*");
+                System.out.println("We have " + this.getAmountOfProductInStock(product) + " of the product " + product + " in the Warehouse inventory.");
+
                 if (products.get(product) > quantity) {
-                    System.out.println("We have " + this.getAmountOfProductInStock(product) + " of the product " + product + " in the Warehouse inventory.");
                     System.out.println("We remove " + quantity + " of the product " + product + " from the Warehouse inventory.");
 
                     this.products.put(product, products.get(product) - quantity);
@@ -66,10 +68,11 @@ public class Inventory
                 } else if (products.get(product) == quantity) {
 
                     this.products.remove(product);
-                    System.out.println("We now have none left of " + product + " in the Warehouse.");
+                    System.out.println("We removed all of " + product + " from the Warehouse.");
 
                 } else {
-                    System.out.println("Insufficient Stock! Only " + products.get(product) + " available of " + product);
+                    System.out.println("Insufficient Stock!");
+                    System.out.println("Only " + products.get(product) + " available of " + product);
                 }
 
             }

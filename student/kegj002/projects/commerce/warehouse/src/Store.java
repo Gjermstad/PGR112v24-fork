@@ -26,9 +26,8 @@ public class Store
         // må sjekke om dette er mulig først
     }
 
-    double totalWarehouseValue() {
-        // TODO regn ut verdien på alle varene på lager
-        return 0;
+    double totalWarehouseValue(boolean showEachProduct) {
+        return this.getWarehouseInventory().totalValueOfProductsInWarehouse(showEachProduct);
     }
 
     double totalStoreValue() {
@@ -37,6 +36,6 @@ public class Store
     }
 
     double totalValue() {
-        return this.totalWarehouseValue() + this.totalStoreValue();
+        return this.totalWarehouseValue(false) + this.totalStoreValue();
     }
 }
