@@ -16,8 +16,22 @@ public class Inventory
     }
 
     //# Methods
-    public double valueOfProducts() {
-        return 0;
+    public double totalValueOfProductsInWarehouse() {
+        System.out.println("*Calculating total value of products in the Warehouse...*");
+        double totalValue = 0;
+
+        for (Product product : products.keySet()) {
+            Integer amountOfProduct = products.get(product);
+            Double productPrice = product.getPrice();
+
+            totalValue += productPrice * amountOfProduct;
+
+            System.out.println("- We have [" + amountOfProduct + "] of the item " + product.getName() + " worth $" + product.getPrice() + " [subtotal so far: " + totalValue + "].");
+        }
+
+        System.out.println("Total value of all products in stock when sold is $" + totalValue);
+
+        return totalValue;
     }
 
     public int totalAmountOfProductsInWarehouse() {
