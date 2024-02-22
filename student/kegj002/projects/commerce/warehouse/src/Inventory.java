@@ -20,8 +20,8 @@ public class Inventory
         return 0;
     }
 
-    int amountOfProducts() {
-        System.out.println("Counting the stock in the Warehouse...");
+    public int totalAmountOfProducts() {
+        System.out.println("*Counting the stock in the Warehouse...*");
         double total = 0;
 
         for (Product product : products.keySet()) {
@@ -48,9 +48,12 @@ public class Inventory
                     this.products.put(product, products.get(product) - quantity);
 
                     System.out.println("We now have " + products.get(product) + " left of " + product + " in the Warehouse.");
+
                 } else if (products.get(product) == quantity) {
+
                     this.products.remove(product);
                     System.out.println("We now have none left of " + product + " in the Warehouse.");
+
                 } else {
                     System.out.println("Insufficient Stock! Only " + products.get(product) + " available of " + product);
                 }
