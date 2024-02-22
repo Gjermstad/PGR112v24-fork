@@ -16,11 +16,11 @@ public class Inventory
     }
 
     //# Methods
-    double valueOfProducts() {
+    public double valueOfProducts() {
         return 0;
     }
 
-    public int totalAmountOfProducts() {
+    public int totalAmountOfProductsInWarehouse() {
         System.out.println("*Counting the stock in the Warehouse...*");
         double total = 0;
 
