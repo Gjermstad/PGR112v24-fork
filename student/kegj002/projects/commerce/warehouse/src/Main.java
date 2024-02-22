@@ -22,12 +22,12 @@ public class Main
         store.getWarehouseInventory().addProduct(cable, 1);
         store.getWarehouseInventory().addProduct(energyDrink1, 10);
 
-        store.getWarehouseInventory().totalAmountOfProducts();
+        store.getWarehouseInventory().totalAmountOfProductsInWarehouse();
 
         System.out.println("We sell a product.");
         store.getWarehouseInventory().removeProduct(energyDrink1, 2);
 
-        store.getWarehouseInventory().totalAmountOfProducts();
+        store.getWarehouseInventory().totalAmountOfProductsInWarehouse();
         System.out.println(store.getWarehouseInventory().checkIfProductInStock(laptop));
         store.getWarehouseInventory().removeProduct(laptop, 1);
         System.out.println(store.getWarehouseInventory().checkIfProductInStock(laptop));
