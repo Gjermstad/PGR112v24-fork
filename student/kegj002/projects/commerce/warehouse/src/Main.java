@@ -24,6 +24,10 @@ public class Main
 
         store.getWarehouseInventory().totalAmountOfProductsInWarehouse();
 
+        store.getWarehouseInventory().totalValueOfProductsInWarehouse(false);
+        /*
+
+
         System.out.println("We sell a product.");
         store.getWarehouseInventory().removeProduct(energyDrink1, 2);
 
@@ -31,6 +35,7 @@ public class Main
         System.out.println(store.getWarehouseInventory().checkIfProductInStock(laptop));
         store.getWarehouseInventory().removeProduct(laptop, 1);
         System.out.println(store.getWarehouseInventory().checkIfProductInStock(laptop));
+        */
 
         //# Flytt varer fra lageret til butikken
 
