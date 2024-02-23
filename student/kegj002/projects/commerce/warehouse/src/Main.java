@@ -28,30 +28,12 @@ public class Main
 
         store.getWarehouseInventory().removeProduct(energyDrink1, 2);
 
-        System.out.println("Value of this Warehouse: $" + store.totalWarehouseValue(false));
-
-        store.getWarehouseInventory().removeProduct(energyDrink1, 3);
+        // TODO Flytt varer fra lageret til butikken
 
         System.out.println("Value of this Warehouse: $" + store.totalWarehouseValue(false));
 
-        /*
+        // TODO Print ut butikkens verdi
 
-
-        System.out.println("We sell a product.");
-
-
-        store.getWarehouseInventory().totalAmountOfProductsInWarehouse();
-        System.out.println(store.getWarehouseInventory().checkIfProductInStock(laptop));
-        store.getWarehouseInventory().removeProduct(laptop, 1);
-        System.out.println(store.getWarehouseInventory().checkIfProductInStock(laptop));
-        */
-
-        //# Flytt varer fra lageret til butikken
-
-        // Print ut varehusets verdi
-
-        // Print ut butikkens verdi
-
-        // Print ut samlet verdi
+        // TODO Print ut samlet verdi
     }
 }
