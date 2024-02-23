@@ -15,11 +15,11 @@ public class Wallet
 
 
     //# Getter-methods
-    Customer getOwner() {
+    Customer getOwnerOfWallet() {
         return this.owner;
     }
 
-    int getMoney() {
+    int getCustomerWalletBalance() {
         return this.money;
     }
 
@@ -30,12 +30,13 @@ public class Wallet
     }
 
     void addMoney(int value) {
-        this.setMoney(this.getMoney() + value);
+        this.setMoney(this.getCustomerWalletBalance() + value);
     }
 
+    //# Methods
     void removeMoney(int value) {
-        if (this.getMoney() >= value) {
-            this.setMoney(this.getMoney() - value);
+        if (this.getCustomerWalletBalance() >= value) {
+            this.setMoney(this.getCustomerWalletBalance() - value);
         }
     }
 }
