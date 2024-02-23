@@ -7,8 +7,8 @@ public class Store
     private CashRegister register;
 
     // Kommenter ut dette feltet om du ønsker en ekstra utfordring:
-    // private HashMap<Product, Integer> products
-    // Dersom dette gjøres, så må du håndtere hvor mange av hvert
+    // private HashMap<Product, Integer> products;
+    // Dersom du gjør dette, så må du håndtere hvor mange av hvert
     // produkt butikken har tilgjengelig til salgs og holde denne oppdatert
     // ut ifra salg som gjennomføres - om en vare går tom kan ikke en kunde kjøpe varen!
 
