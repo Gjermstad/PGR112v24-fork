@@ -7,7 +7,7 @@ public class Main
         Employee owner = new Employee();
 
         Store store = new Store(
-                "Navn på butikken",
+                "Electro Heaven",
                 owner
         );
 
@@ -21,7 +21,7 @@ public class Main
         boolean success = store.getCashRegister().processCustomer(customer);
 
         //# 4) If the sale is successful,
-        // make sure a receipt generated and added to the cash register
+        // make sure a receipt is generated and added to the cash register
 
         // ---
 
