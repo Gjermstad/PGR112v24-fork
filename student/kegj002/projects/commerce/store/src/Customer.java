@@ -22,7 +22,7 @@ public class Customer
     }
 
     int getMoney() {
-        return this.wallet.getMoney();
+        return this.wallet.getCustomerWalletBalance();
     }
 
     HashMap<Product, Integer> getShoppingCart() {
