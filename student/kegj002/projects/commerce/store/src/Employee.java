@@ -7,17 +7,17 @@ public class Employee
 
 
     //# Fields
-    private final int identifier;
+    private final int employeeNumber;
 
 
     //# Constructors
     Employee() {
-        this.identifier = Employee.counter ++;
+        this.employeeNumber = Employee.counter ++;
     }
 
 
     //# Getter-methods
-    int getEmployeeNumber() {
-        return this.identifier;
+    public int getEmployeeNumber() {
+        return this.employeeNumber;
     }
 }
