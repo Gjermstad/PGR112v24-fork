@@ -22,17 +22,18 @@ public class Main
         store.getWarehouseInventory().addProduct(cable, 1);
         store.getWarehouseInventory().addProduct(energyDrink1, 10);
 
-        store.getWarehouseInventory().totalNumberOfProductsInInventory();
+        store.getWarehouseInventory().totalNumberOfProductsInInventory(true);
 
         store.getWarehouseInventory().totalValueOfProductsInInventory(false);
 
-        store.getWarehouseInventory().removeProduct(energyDrink1, 2);
+        store.getWarehouseInventory().removeProduct(energyDrink1, 2, false);
 
         // TODO Flytt varer fra lageret til butikken
 
-        System.out.println("Value of this Warehouse: $" + store.totalWarehouseValue(false));
+        store.moveProductFromWarehouseToStore(energyDrink1, 11);
 
         // TODO Print ut butikkens verdi
+        System.out.println("Value of this Warehouse: $" + store.totalWarehouseValue(false));
 
         // TODO Print ut samlet verdi
     }
