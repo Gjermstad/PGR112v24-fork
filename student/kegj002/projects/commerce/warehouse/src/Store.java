@@ -34,9 +34,13 @@ public class Store
             this.getWarehouseInventory().removeProduct(product, quantity, false);
             System.out.println("*We moved " + quantity + " of " + product + " from the Warehouse to the Store.*");
         } else {
-            System.out.println("*ERROR* - Product not available or Insufficient quantity");
+            System.out.println("*ERROR* - " + product + " not available or Insufficient quantity for moving " + quantity + ".");
         }
 
+    }
+
+    void moveAllProductsFromWarehouseToStore() {
+        this.getStoreInventory().putall();
     }
 
     double totalWarehouseValue(boolean printEachProduct) {
