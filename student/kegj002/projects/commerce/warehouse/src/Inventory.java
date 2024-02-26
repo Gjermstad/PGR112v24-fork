@@ -16,7 +16,7 @@ public class Inventory
     }
 
     //# Methods
-    public double totalValueOfProductsInWarehouse(boolean showEachProduct) {
+    public double totalValueOfProductsInInventory(boolean showEachProduct) {
         System.out.println("*Calculating total value of products in the Warehouse...*");
         double totalValue = 0;
 
@@ -34,13 +34,14 @@ public class Inventory
         return totalValue;
     }
 
-    public int totalAmountOfProductsInWarehouse() {
+    public int totalNumberOfProductsInInventory() {
         System.out.println("*Counting the stock in the Warehouse...*");
         double total = 0;
 
         for (Product product : products.keySet()) {
             total += products.get(product);
         }
+
         System.out.println("There are " + (int) total + " products in the Warehouse.");
         return (int) total;
     }
