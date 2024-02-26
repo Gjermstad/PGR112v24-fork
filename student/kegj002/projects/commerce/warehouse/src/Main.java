@@ -22,9 +22,9 @@ public class Main
         store.getWarehouseInventory().addProduct(cable, 1);
         store.getWarehouseInventory().addProduct(energyDrink1, 10);
 
-        store.getWarehouseInventory().totalAmountOfProductsInWarehouse();
+        store.getWarehouseInventory().totalNumberOfProductsInInventory();
 
-        store.getWarehouseInventory().totalValueOfProductsInWarehouse(false);
+        store.getWarehouseInventory().totalValueOfProductsInInventory(false);
 
         store.getWarehouseInventory().removeProduct(energyDrink1, 2);
 
