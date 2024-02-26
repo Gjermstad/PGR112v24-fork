@@ -6,10 +6,7 @@ public class Main
     public static void main(String[] args) {
         Employee owner = new Employee();
 
-        Store store = new Store(
-                "Electro Heaven",
-                owner
-        );
+        Store store = new Store("Electro Heaven", owner);
 
         Customer customer = new Customer(1000);
 
