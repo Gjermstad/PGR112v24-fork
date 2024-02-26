@@ -25,13 +25,22 @@ public class Store
     }
 
     //# Methods
-    void moveProduct(Product product, int quantity) {
+    void moveProductFromWarehouseToStore(Product product, int quantity) {
         // TODO flytt varen fra lageret til butikken
         // må sjekke om dette er mulig først
+
+        if (this.getWarehouseInventory().checkIfProductInStock(product) && this.getWarehouseInventory().getAmountOfProductInStock(product) >= quantity) {
+            this.getStoreInventory().addProduct(product, quantity);
+            this.getWarehouseInventory().removeProduct(product, quantity, false);
+            System.out.println("*We moved " + quantity + " of " + product + " from the Warehouse to the Store.*");
+        } else {
+            System.out.println("*ERROR* - Product not available or Insufficient quantity");
+        }
+
     }
 
-    double totalWarehouseValue(boolean showEachProduct) {
-        return this.getWarehouseInventory().totalValueOfProductsInInventory(showEachProduct);
+    double totalWarehouseValue(boolean printEachProduct) {
+        return this.getWarehouseInventory().totalValueOfProductsInInventory(printEachProduct);
     }
 
     double totalStoreValue() {
