@@ -10,8 +10,8 @@ public class Customer
 
 
     //# Constructors
-    Customer(int money) {
-        this.wallet = new Wallet(this, money);
+    Customer(int moneyInWallet) {
+        this.wallet = new Wallet(this, moneyInWallet);
         this.cart = new HashMap<>();
     }
 
@@ -21,7 +21,7 @@ public class Customer
         return this.wallet;
     }
 
-    int getMoney() {
+    double getBalanceOfWallet() {
         return this.wallet.getCustomerWalletBalance();
     }
 
@@ -34,7 +34,8 @@ public class Customer
 
 
     //# Methods
-    void removeMoney() {
+    void removeMoney(double value) {
         // TODO
+        getWallet().removeMoneyFromWallet(value);
     }
 }
