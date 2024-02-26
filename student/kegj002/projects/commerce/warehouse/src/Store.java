@@ -20,6 +20,10 @@ public class Store
         return this.getWarehouse().getInventory();
     }
 
+    Inventory getStoreInventory() {
+        return this.inventory;
+    }
+
     //# Methods
     void moveProduct(Product product, int quantity) {
         // TODO flytt varen fra lageret til butikken
@@ -27,7 +31,7 @@ public class Store
     }
 
     double totalWarehouseValue(boolean showEachProduct) {
-        return this.getWarehouseInventory().totalValueOfProductsInWarehouse(showEachProduct);
+        return this.getWarehouseInventory().totalValueOfProductsInInventory(showEachProduct);
     }
 
     double totalStoreValue() {
