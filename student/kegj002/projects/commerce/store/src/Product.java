@@ -4,7 +4,7 @@ public class Product
 {
     //# Fields
     private final String name;
-    private final int price;
+    private final double price;
 
 
     //# Constructors
@@ -19,7 +19,7 @@ public class Product
         return this.name;
     }
 
-    int getPrice() {
+    double getPrice() {
         return this.price;
     }
 }
