@@ -1,9 +1,13 @@
 package kegj002.projects.commerce.warehouse.src;
 
+import java.util.HashMap;
+
 public class Main
 {
     public static void main(String[] args) {
         Store store = new Store();
+
+        System.out.println("Welcome to our store!");
 
         //# Opprett mange forskjellige produkter
         // og legg de til i lageret
@@ -23,18 +27,25 @@ public class Main
         store.getWarehouseInventory().addProduct(energyDrink1, 10);
 
         store.getWarehouseInventory().totalNumberOfProductsInInventory(true);
-
-        store.getWarehouseInventory().totalValueOfProductsInInventory(false);
-
-        store.getWarehouseInventory().removeProduct(energyDrink1, 2, false);
-
-        // TODO Flytt varer fra lageret til butikken
-
-        store.moveProductFromWarehouseToStore(energyDrink1, 11);
-
-        // TODO Print ut butikkens verdi
         System.out.println("Value of this Warehouse: $" + store.totalWarehouseValue(false));
 
-        // TODO Print ut samlet verdi
+        //# Flytt varer fra lageret til butikken
+
+        System.out.println("Let's move our stock into our store.");
+
+        store.moveAllProductsFromWarehouseToStore();
+
+        System.out.println("Store: " + store.getStoreInventory());
+
+        Product waterBottle = new Product("Imsdal 0.5 liter", 19.00);
+        store.getWarehouseInventory().addProduct(waterBottle, 10);
+
+        //# Print ut varene i butikkens verdi
+
+        System.out.println("Value of this Store: $" + store.totalStoreValue());
+
+        //# Print ut samlet verdi for butikken inkludert lageret
+
+        System.out.println("Value of this Store including Warehouse stock: $" + store.totalValue());
     }
 }
