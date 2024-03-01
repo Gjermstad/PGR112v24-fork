@@ -4,11 +4,11 @@ public class Wallet
 {
     //# Fields
     private Customer owner;
-    private double money;
+    private int money;
 
 
     //# Constructor
-    Wallet(Customer owner, double money) {
+    Wallet(Customer owner, int money) {
         this.owner = owner;
         this.money = money;
     }
@@ -19,24 +19,24 @@ public class Wallet
         return this.owner;
     }
 
-    public double getCustomerWalletBalance() {
+    public int getCustomerWalletBalance() {
         return this.money;
     }
 
 
     //# Setter-methods
-    public void setMoney(double value) {
+    public void setMoney(int value) {
         this.money = value;
     }
 
     //# Methods
-    void removeMoneyFromWallet(double value) {
+    void removeMoneyFromWallet(int value) {
         if (this.getCustomerWalletBalance() >= value) {
             this.setMoney(this.getCustomerWalletBalance() - value);
         }
     }
 
-    public void addMoney(double value) {
+    public void addMoney(int value) {
         this.setMoney(this.getCustomerWalletBalance() + value);
     }
 }

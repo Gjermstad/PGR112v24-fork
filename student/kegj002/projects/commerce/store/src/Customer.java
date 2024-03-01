@@ -21,7 +21,7 @@ public class Customer
         return this.wallet;
     }
 
-    double getBalanceOfWallet() {
+    int getBalanceOfWallet() {
         return this.wallet.getCustomerWalletBalance();
     }
 
@@ -34,7 +34,7 @@ public class Customer
 
 
     //# Methods
-    void removeMoney(double value) {
+    void removeMoney(int value) {
         // TODO
         getWallet().removeMoneyFromWallet(value);
     }
