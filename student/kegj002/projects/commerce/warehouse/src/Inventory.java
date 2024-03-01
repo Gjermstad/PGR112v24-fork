@@ -8,11 +8,15 @@ public class Inventory
 
     //# Getters
     public int getAmountOfProductInStock(Product product) {
-        return products.get(product);
+        return this.products.get(product);
+    }
+
+    public HashMap<Product, Integer> getProducts() {
+        return this.products;
     }
 
     public boolean checkIfProductInStock(Product product) {
-        return products.containsKey(product);
+        return this.products.containsKey(product);
     }
 
     //# Methods
@@ -21,7 +25,7 @@ public class Inventory
 
         double totalValue = 0;
 
-        for (Product product : products.keySet()) {
+        for (Product product : this.products.keySet()) {
             Integer amountOfProduct = this.getAmountOfProductInStock(product);;
             Double productPrice = product.getPrice();
 
@@ -76,7 +80,7 @@ public class Inventory
                     System.out.println("Insufficient Stock!");
                     System.out.println("Only " + products.get(product) + " available of " + product + ".");
                 }
-
+                return;
             }
 
         }
