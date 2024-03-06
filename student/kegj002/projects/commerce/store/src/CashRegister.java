@@ -59,7 +59,6 @@ public class CashRegister
 
         if (customer.getBalanceOfWallet() >= customerCartValue) {
 
-
             //# 3) If customer has enough money:
             //# 3.1) Remove money from wallet
 
@@ -74,12 +73,32 @@ public class CashRegister
             //# 3.3) Clear products from customer cart
 
             customer.clearCustomerCart();
+            System.out.println("The groceries are put in the customer's bags.");
 
             //# 4) Create a receipt
 
+            Receipt receipt = new Receipt(tempCart);
+            System.out.println("tempCart size: " + tempCart.size());
+
+            receipts.add(receipt);
+
             //# 5) Print the receipt to the terminal
+            System.out.println("Printing the customers receipt:");
+
+            System.out.println("\n---------------------");
+            System.out.println("------RECEIPT#" + receipt.getReceiptNumber() + "------");
+
+            for (Product product : tempCart.keySet()) {
+                int amount = tempCart.get(product);
+
+                System.out.println(amount + "x " + product.getName() + " á " + product.getPrice());
+
+            }
+
+            System.out.println("---------------------");
 
             //# 6) return true
+            return true;
 
         } else {
             System.out.println("The customer screams as she realises she don't have enought money to pay for everything.");
