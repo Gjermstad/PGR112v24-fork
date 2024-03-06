@@ -44,6 +44,10 @@ public class Customer
         this.cart.put(product, quantity);
     }
 
+    void clearCustomerCart() {
+        this.cart.clear();
+    }
+
     //# Methods
     void removeMoney(int value) {
         // TODO
