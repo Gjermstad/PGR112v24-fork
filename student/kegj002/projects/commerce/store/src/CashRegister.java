@@ -35,18 +35,40 @@ public class CashRegister
         return this.receipts;
     }
 
+    //# Setter-methods
+    void addMoneyToCashRegister(int sum) {
+        this.money += sum;
+    }
+
 
     //# Methods
     boolean processCustomer(Customer customer) {
         // TODO Fix processing of customer at cashier
         //# 1) Get total price of all products in cart
 
+        int customerCartValue = customer.getTotalPriceForCart();
+
+        System.out.println("The customer comes up to the cashier.");
+        System.out.println("After scanning all items the total is $" + customerCartValue + ".");
+
         //# 2) Check if customer has enough money in wallet
 
-        //# 3) If customer has enough money:
+        if (customer.getBalanceOfWallet() >= customerCartValue) {
+
+            System.out.println("The customer takes out her wallet and tap's her card.");
+
+            //# 3) If customer has enough money:
             //# 3.1) Remove money from wallet
+
+            customer.removeMoney(customerCartValue);
+
             //# 3.2) Add money to cash register
+
+            this.addMoneyToCashRegister(customerCartValue);
+
             //# 3.3) Clear products from customer cart
+
+
 
             //# 4) Create a receipt
 
@@ -54,7 +76,12 @@ public class CashRegister
 
             //# 6) return true
 
-        //# 3) else:
+        } else {
+            System.out.println("The customer screams as she realises she don't have enought money to pay for everything.");
+            System.out.println("She yells to the world and complains about all the prices rising too much for people.");
+        }
+
+        //# 7) else:
         return false;
     }
 
