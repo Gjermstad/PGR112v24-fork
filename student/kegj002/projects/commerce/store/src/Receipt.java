@@ -8,14 +8,14 @@ public class Receipt
     //# Fields
     private final HashMap<Product, Integer> products;
 
-    private static int counter = 0;
+    private static int counter = 1;
     private final int receiptNumber;
 
 
     //# Constructors
     Receipt(HashMap<Product, Integer> products) {
         this.products = products;
-        this.receiptNumber = Receipt.counter++;
+        this.receiptNumber = counter++;
     }
 
 
@@ -30,17 +30,25 @@ public class Receipt
 
     //# Methods
     int totalPrice() {
-        return 0; // TODO
+        int totalValue = 0;
+
+        for (Product product : products.keySet()) {
+            int amountOfProduct = this.products.get(product);;
+
+            int productPrice = product.getPrice();
+
+            totalValue += productPrice * amountOfProduct;
+        }
+
+        return totalValue;
     }
 
     int totalProducts() {
-        return 0; // TODO
+        return this.products.size();
     }
 
     @Override
     public String toString() {
-        return "Receipt{" +
-                "receiptNumber=" + receiptNumber +
-                '}';
+        return "Receipt #" + this.receiptNumber + " [" + this.totalProducts() + " products; total $" + this.totalPrice() + "]" ;
     }
 }
