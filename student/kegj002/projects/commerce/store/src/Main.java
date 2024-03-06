@@ -10,6 +10,8 @@ public class Main
 
         Customer customer = new Customer(1000);
 
+        System.out.println("Welcome to " + store.getStoreName() + "! Your first stop for all your needs!");
+
         //# 1) Create products available for purchase
 
         Product apple = new Product("Apple", 10);
@@ -25,6 +27,8 @@ public class Main
 
         //# 2) Add products to customer's shopping cart
 
+        System.out.println("The customer enters the store and starts adding groceries to her cart.");
+
         customer.putProductInCart(tortilla, 5);
         customer.putProductInCart(salsa, 1);
         customer.putProductInCart(groundMeat, 2);
@@ -35,6 +39,8 @@ public class Main
         customer.putProductInCart(lettuce, 2);
         customer.putProductInCart(apple, 4);
         customer.putProductInCart(banana, 3);
+
+        System.out.println("After a while the customer now has " + customer.getShoppingCart().size() + " products in their cart.");
 
         //# 3) Process the buying of products via the cash register
         boolean success = store.getCashRegister().processCustomer(customer);
