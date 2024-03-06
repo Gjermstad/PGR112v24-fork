@@ -29,6 +29,16 @@ public class Customer
         return this.cart;
     }
 
+    int getTotalPriceForCart() {
+        int totalPrice = 0;
+
+        for (Product product : this.cart.keySet()) {
+            totalPrice += product.getPrice();
+        }
+
+        return totalPrice;
+    }
+
     //# Setter-methods
     void putProductInCart(Product product, Integer quantity) {
         this.cart.put(product, quantity);
