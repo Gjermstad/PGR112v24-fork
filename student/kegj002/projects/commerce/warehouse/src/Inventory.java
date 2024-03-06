@@ -8,7 +8,11 @@ public class Inventory
 
     //# Getters
     public int getAmountOfProductInStock(Product product) {
-        return products.get(product);
+        return this.products.get(product);
+    }
+
+    public HashMap<Product, Integer> getProducts() {
+        return this.products;
     }
 
     public boolean checkIfProductInStock(Product product) {
