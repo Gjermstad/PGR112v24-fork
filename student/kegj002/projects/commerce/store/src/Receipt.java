@@ -36,4 +36,11 @@ public class Receipt
     int totalProducts() {
         return 0; // TODO
     }
+
+    @Override
+    public String toString() {
+        return "Receipt{" +
+                "receiptNumber=" + receiptNumber +
+                '}';
+    }
 }
