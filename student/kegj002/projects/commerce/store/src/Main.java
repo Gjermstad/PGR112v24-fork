@@ -16,6 +16,12 @@ public class Main
         Product banana = new Product("Banana", 8);
         Product groundMeat = new Product("Ground Beef", 79);
         Product shreddedCheese = new Product("Shredded Cheese", 99);
+        Product tortilla = new Product("Tortillas Wholegrain", 20);
+        Product salsa = new Product("Salsa sauce, medium", 17);
+        Product pineapple = new Product("Pineapple in pieces", 15);
+        Product lettuce = new Product("Head of lettuce", 29);
+        Product tomato = new Product("Tomato", 5);
+        Product cucumber = new Product("Cucmber", 19);
 
         //# 2) Add products to customer's shopping cart
 
