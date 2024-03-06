@@ -29,9 +29,10 @@ public class Customer
         return this.cart;
     }
 
-
     //# Setter-methods
-
+    void putProductInCart(Product product, Integer quantity) {
+        this.cart.put(product, quantity);
+    }
 
     //# Methods
     void removeMoney(int value) {
