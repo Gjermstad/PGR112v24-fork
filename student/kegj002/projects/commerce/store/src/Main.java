@@ -8,7 +8,7 @@ public class Main
 
         Store store = new Store("Grocery Heaven", owner);
 
-        Customer customer = new Customer(1000);
+        Customer customer1 = new Customer(1000);
 
         System.out.println("Welcome to " + store.getStoreName() + "! Your first stop for all your needs!");
 
@@ -29,21 +29,21 @@ public class Main
 
         System.out.println("The customer enters the store and starts adding groceries to her cart.");
 
-        customer.putProductInCart(tortilla, 5);
-        customer.putProductInCart(salsa, 1);
-        customer.putProductInCart(groundMeat, 2);
-        customer.putProductInCart(shreddedCheese, 1);
-        customer.putProductInCart(tomato, 6);
-        customer.putProductInCart(cucumber, 2);
-        customer.putProductInCart(pineapple, 2);
-        customer.putProductInCart(lettuce, 2);
-        customer.putProductInCart(apple, 4);
-        customer.putProductInCart(banana, 3);
+        customer1.putProductInCart(tortilla, 5);
+        customer1.putProductInCart(salsa, 1);
+        customer1.putProductInCart(groundMeat, 2);
+        customer1.putProductInCart(shreddedCheese, 1);
+        customer1.putProductInCart(tomato, 6);
+        customer1.putProductInCart(cucumber, 2);
+        customer1.putProductInCart(pineapple, 2);
+        customer1.putProductInCart(lettuce, 2);
+        customer1.putProductInCart(apple, 4);
+        customer1.putProductInCart(banana, 3);
 
-        System.out.println("After a while the customer now has " + customer.getShoppingCart().size() + " products in their cart.");
+        System.out.println("After a while the customer now has " + customer1.getShoppingCart().size() + " products in their cart.");
 
         //# 3) Process the buying of products via the cash register
-        boolean success = store.getCashRegister().processCustomer(customer);
+        boolean success = store.getCashRegister().processCustomer(customer1);
 
         //# 4) If the sale is successful,
         // make sure a receipt is generated and added to the cash register
