@@ -1,6 +1,7 @@
 package kegj002.projects.commerce.store.src;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CashRegister
 {
@@ -44,6 +45,9 @@ public class CashRegister
     //# Methods
     boolean processCustomer(Customer customer) {
         // TODO Fix processing of customer at cashier
+
+        HashMap<Product, Integer> tempCart = customer.getShoppingCart();
+
         //# 1) Get total price of all products in cart
 
         int customerCartValue = customer.getTotalPriceForCart();
@@ -55,12 +59,13 @@ public class CashRegister
 
         if (customer.getBalanceOfWallet() >= customerCartValue) {
 
-            System.out.println("The customer takes out her wallet and tap's her card.");
 
             //# 3) If customer has enough money:
             //# 3.1) Remove money from wallet
 
             customer.removeMoney(customerCartValue);
+            System.out.println("The customer takes out her wallet and hands over her money.");
+            System.out.println("She now have $" + customer.getBalanceOfWallet() + " left.");
 
             //# 3.2) Add money to cash register
 
@@ -68,7 +73,7 @@ public class CashRegister
 
             //# 3.3) Clear products from customer cart
 
-
+            customer.clearCustomerCart();
 
             //# 4) Create a receipt
 
