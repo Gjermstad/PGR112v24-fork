@@ -1,5 +1,7 @@
 package kegj002.projects.commerce.warehouse.src;
 
+import java.util.HashMap;
+
 public class Store
 {
     //# Fields
@@ -26,8 +28,6 @@ public class Store
 
     //# Methods
     void moveProductFromWarehouseToStore(Product product, int quantity) {
-        // TODO flytt varen fra lageret til butikken
-        // må sjekke om dette er mulig først
 
         if (this.getWarehouseInventory().checkIfProductInStock(product) && this.getWarehouseInventory().getAmountOfProductInStock(product) >= quantity) {
             this.getStoreInventory().addProduct(product, quantity);
@@ -40,7 +40,19 @@ public class Store
     }
 
     void moveAllProductsFromWarehouseToStore() {
-        this.getStoreInventory().putall();
+        HashMap<Product, Integer> wareInventory =  this.getWarehouseInventory().getProducts();
+
+        for (Product product : wareInventory.keySet()) {
+            int quantity = this.getWarehouseInventory().getAmountOfProductInStock(product);
+
+            this.getStoreInventory().addProduct(product, quantity);
+            System.out.println("*We moved " + quantity + " of " + product + " from the Warehouse to the Store.*");
+        }
+
+        System.out.println("*All products moved from Warehouse to the Store.*");
+
+        this.getWarehouseInventory().getProducts().clear();
+
     }
 
     double totalWarehouseValue(boolean printEachProduct) {
@@ -48,8 +60,7 @@ public class Store
     }
 
     double totalStoreValue() {
-        // TODO regn ut verdien på alle varene ute i butikken
-        return 0;
+        return getStoreInventory().totalValueOfProductsInInventory(false);
     }
 
     double totalValue() {
