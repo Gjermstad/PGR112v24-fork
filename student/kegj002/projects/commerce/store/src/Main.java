@@ -6,11 +6,16 @@ public class Main
     public static void main(String[] args) {
         Employee owner = new Employee();
 
-        Store store = new Store("Electro Heaven", owner);
+        Store store = new Store("Grocery Heaven", owner);
 
         Customer customer = new Customer(1000);
 
         //# 1) Create products available for purchase
+
+        Product apple = new Product("Apple", 10);
+        Product banana = new Product("Banana", 8);
+        Product groundMeat = new Product("Ground Beef", 79);
+        Product shreddedCheese = new Product("Shredded Cheese", 99);
 
         //# 2) Add products to customer's shopping cart
 
