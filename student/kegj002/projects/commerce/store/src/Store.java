@@ -19,9 +19,12 @@ public class Store
         this.register = new CashRegister(employee);
     }
 
-
     //# Getter-methods
     CashRegister getCashRegister() {
         return this.register;
+    }
+
+    public String getStoreName() {
+        return this.name;
     }
 }
