@@ -44,6 +44,35 @@ public class CashRegister
 
 
     //# Methods
+    void createAndPrintReceipt(Customer customer) {
+        HashMap<Product, Integer> tempCart = new HashMap<>();
+
+        for (Map.Entry<Product, Integer> entry : customer.getShoppingCart().entrySet()) {
+            Product tempProduct = entry.getKey();
+            Integer tempInteger = entry.getValue();
+
+            tempCart.put(tempProduct, tempInteger);
+        }
+
+        Receipt receipt = new Receipt(tempCart);
+        System.out.println("tempCart size: " + tempCart.size());
+
+        receipts.add(receipt);
+
+        System.out.println("Printing the customers receipt:");
+
+        System.out.println("---------------------");
+        System.out.println("------RECEIPT#" + receipt.getReceiptNumber() + "------");
+
+        for (Map.Entry<Product, Integer> product : tempCart.entrySet()) {
+            Integer amount = tempCart.get(product);
+
+            System.out.println(product.getValue() + "x " + product.getKey().getName() + " á $" + product.getKey().getPrice());
+        }
+
+        System.out.println("---------------------");
+    }
+
     boolean processCustomer(Customer customer) {
         // TODO Fix processing of customer at cashier
 
@@ -81,31 +110,15 @@ public class CashRegister
 
             //# 3.3) Clear products from customer cart
 
-            customer.clearCustomerCart();
             System.out.println("The groceries are put in the customer's bags.");
 
             //# 4) Create a receipt
-
-            Receipt receipt = new Receipt(tempCart);
-            System.out.println("tempCart size: " + tempCart.size());
-
-            receipts.add(receipt);
-
             //# 5) Print the receipt to the terminal
-            System.out.println("Printing the customers receipt:");
+            this.createAndPrintReceipt(customer);
 
-            System.out.println("\n---------------------");
-            System.out.println("------RECEIPT#" + receipt.getReceiptNumber() + "------");
-
-            for (Map.Entry<Product, Integer> product : tempCart.entrySet()) {
-                Integer amount = tempCart.get(product);
-
-                System.out.println(product.getValue() + "x " + product.getKey().getName() + " á $" + product.getKey().getPrice());
-            }
-
-            System.out.println("---------------------");
 
             //# 6) return true
+            customer.clearCustomerCart();
             return true;
 
         } else {
@@ -121,5 +134,4 @@ public class CashRegister
         // TODO go through each receipt and sum up all income and return result
         return 0;
     }
-
 }
