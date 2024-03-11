@@ -2,6 +2,7 @@ package kegj002.projects.commerce.store.src;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class CashRegister
 {
@@ -46,13 +47,21 @@ public class CashRegister
     boolean processCustomer(Customer customer) {
         // TODO Fix processing of customer at cashier
 
-        HashMap<Product, Integer> tempCart = customer.getShoppingCart();
+        HashMap<Product, Integer> tempCart = new HashMap<>();
+
+        for (Map.Entry<Product, Integer> entry : customer.getShoppingCart().entrySet()) {
+            Product tempProduct = entry.getKey();
+            Integer tempInteger = entry.getValue();
+
+            tempCart.put(tempProduct, tempInteger);
+        }
 
         //# 1) Get total price of all products in cart
 
         int customerCartValue = customer.getTotalPriceForCart();
 
         System.out.println("The customer comes up to the cashier.");
+        System.out.println("Customer puts her " + customer.getShoppingCart().size() + " products on the band.");
         System.out.println("After scanning all items the total is $" + customerCartValue + ".");
 
         //# 2) Check if customer has enough money in wallet
@@ -88,11 +97,10 @@ public class CashRegister
             System.out.println("\n---------------------");
             System.out.println("------RECEIPT#" + receipt.getReceiptNumber() + "------");
 
-            for (Product product : tempCart.keySet()) {
-                int amount = tempCart.get(product);
+            for (Map.Entry<Product, Integer> product : tempCart.entrySet()) {
+                Integer amount = tempCart.get(product);
 
-                System.out.println(amount + "x " + product.getName() + " á " + product.getPrice());
-
+                System.out.println(product.getValue() + "x " + product.getKey().getName() + " á $" + product.getKey().getPrice());
             }
 
             System.out.println("---------------------");
@@ -113,4 +121,5 @@ public class CashRegister
         // TODO go through each receipt and sum up all income and return result
         return 0;
     }
+
 }
