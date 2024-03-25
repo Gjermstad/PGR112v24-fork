@@ -51,6 +51,13 @@ public class Main
 
         store.getCashRegister().processCustomer(customer2);
 
+        Customer customer3 = new Customer(400);
+        customer3.putProductInCart(groundMeat, 2);
+        customer3.putProductInCart(shreddedCheese, 2);
+        customer3.putProductInCart(tortilla, 1);
+
+        store.getCashRegister().processCustomer(customer3);
+
         //# 4) If the sale is successful,
         // make sure a receipt is generated and added to the cash register
         // Process two customers and afterward print out all receipts
