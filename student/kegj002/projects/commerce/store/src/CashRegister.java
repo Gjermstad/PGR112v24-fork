@@ -69,7 +69,11 @@ public class CashRegister
 
             System.out.println(product.getValue() + "x " + product.getKey().getName() + " á $" + product.getKey().getPrice());
         }
+        System.out.println("---------------------");
 
+        System.out.println("Total = $" + receipt.totalPrice() + " for " + receipt.totalNumberOfProductsInCart() + " products.");
+
+        System.out.println("---------------------");
         System.out.println("---------------------");
     }
 
@@ -87,10 +91,10 @@ public class CashRegister
 
         //# 1) Get total price of all products in cart
 
-        int customerCartValue = customer.getTotalPriceForCart();
+        int customerCartValue = customer.totalPriceForCart();
 
         System.out.println("The customer comes up to the cashier.");
-        System.out.println("Customer puts her " + customer.getShoppingCart().size() + " products on the band.");
+        System.out.println("Customer puts her " + customer.totalNumberOfProductsInCart() + " products on the band.");
         System.out.println("After scanning all items the total is $" + customerCartValue + ".");
 
         //# 2) Check if customer has enough money in wallet
