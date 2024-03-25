@@ -44,41 +44,7 @@ public class CashRegister
 
 
     //# Methods
-    void createAndPrintReceipt(Customer customer) {
-        HashMap<Product, Integer> tempCart = new HashMap<>();
-
-        for (Map.Entry<Product, Integer> entry : customer.getShoppingCart().entrySet()) {
-            Product tempProduct = entry.getKey();
-            Integer tempInteger = entry.getValue();
-
-            tempCart.put(tempProduct, tempInteger);
-        }
-
-        Receipt receipt = new Receipt(tempCart);
-        System.out.println("tempCart size: " + tempCart.size());
-
-        receipts.add(receipt);
-
-        System.out.println("Printing the customers receipt:");
-
-        System.out.println("---------------------");
-        System.out.println("------RECEIPT#" + receipt.getReceiptNumber() + "------");
-
-        for (Map.Entry<Product, Integer> product : tempCart.entrySet()) {
-            Integer amount = tempCart.get(product);
-
-            System.out.println(product.getValue() + "x " + product.getKey().getName() + " á $" + product.getKey().getPrice());
-        }
-        System.out.println("---------------------");
-
-        System.out.println("Total = $" + receipt.totalPrice() + " for " + receipt.totalNumberOfProductsInCart() + " products.");
-
-        System.out.println("---------------------");
-        System.out.println("---------------------");
-    }
-
     boolean processCustomer(Customer customer) {
-        // TODO Fix processing of customer at cashier
 
         HashMap<Product, Integer> tempCart = new HashMap<>();
 
@@ -93,8 +59,9 @@ public class CashRegister
 
         int customerCartValue = customer.totalPriceForCart();
 
-        System.out.println("The customer comes up to the cashier.");
-        System.out.println("Customer puts her " + customer.totalNumberOfProductsInCart() + " products on the band.");
+        System.out.println(" ");
+        System.out.println("A customer comes up to the cashier.");
+        System.out.println("The customer puts her " + customer.totalNumberOfProductsInCart() + " products on the band.");
         System.out.println("After scanning all items the total is $" + customerCartValue + ".");
 
         //# 2) Check if customer has enough money in wallet
@@ -118,20 +85,59 @@ public class CashRegister
 
             //# 4) Create a receipt
             //# 5) Print the receipt to the terminal
-            this.createAndPrintReceipt(customer);
-
+            this.createAndPrintNewReceipt(customer);
 
             //# 6) return true
+
             customer.clearCustomerCart();
             return true;
 
         } else {
-            System.out.println("The customer screams as she realises she don't have enought money to pay for everything.");
+            System.out.println("The customer screams as she realises she don't have enough money to pay for everything.");
             System.out.println("She yells to the world and complains about all the prices rising too much for people.");
+            System.out.println("The customer then flees the store sobbing hard...");
+
+            //# 7) else:
+            return false;
         }
 
-        //# 7) else:
-        return false;
+    }
+    void createAndPrintNewReceipt(Customer customer) {
+        HashMap<Product, Integer> tempCart = new HashMap<>();
+
+        for (Map.Entry<Product, Integer> entry : customer.getShoppingCart().entrySet()) {
+            Product tempProduct = entry.getKey();
+            Integer tempInteger = entry.getValue();
+
+            tempCart.put(tempProduct, tempInteger);
+        }
+
+        Receipt receipt = new Receipt(tempCart);
+
+        receipts.add(receipt);
+
+        System.out.println("Printing the customers receipt:");
+
+        System.out.println("---------------------");
+        System.out.println("------RECEIPT#" + receipt.getReceiptNumber() + "------");
+
+        for (Map.Entry<Product, Integer> product : tempCart.entrySet()) {
+            Integer amount = tempCart.get(product);
+
+            System.out.println(product.getValue() + "x " + product.getKey().getName() + " á $" + product.getKey().getPrice());
+        }
+        System.out.println("---------------------");
+
+        System.out.println("Total = $" + receipt.totalPrice() + " for " + receipt.totalNumberOfProductsInCart() + " products.");
+
+        System.out.println("---------------------");
+        System.out.println("---------------------");
+        System.out.println(" ");
+    }
+    void printReceipt() {
+        for (Receipt receipt : getReceipts()) {
+            System.out.println(receipt);
+        }
     }
 
     int totalEarnings() {
