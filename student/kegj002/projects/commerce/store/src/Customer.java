@@ -40,7 +40,6 @@ public class Customer
 
     //# Methods
     void removeMoney(int value) {
-        // TODO
         getWallet().removeMoneyFromWallet(value);
     }
 
