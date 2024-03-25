@@ -23,4 +23,11 @@ public class Battle
     Monster getCurrentMonster() {
         return this.monster;
     }
+
+    //# Methods
+    void playerAttacks() {
+        int playerDamage = player.getDamage();
+        System.out.println("The Player attacks the " + getCurrentMonster() + " and does " + playerDamage + " damage.");
+        System.out.println("The " + getCurrentMonster() + " have " + getCurrentMonster().getHealth() + " HP left.");
+    }
 }
