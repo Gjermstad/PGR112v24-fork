@@ -1,7 +1,7 @@
 # Prosjekt: `Store` = Butikk
 
 > Du skal implementere en enkel butikk som består av en ansatt (eier), kunder og produkter som går igjennom et kassesystem.
-> Kunden har en lommebok og penger forvsinner fra lommeboken og går til kassesystemet ved et vellykket kjøp. En kvittering genereres og printes ut til terminalen.
+> Kunden har en lommebok og penger forsvinner fra lommeboken og går til kassesystemet ved et vellykket kjøp. En kvittering genereres og printes ut til terminalen.
 
 ---
 
