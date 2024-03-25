@@ -128,15 +128,29 @@ public class CashRegister
         }
         System.out.println("---------------------");
 
-        System.out.println("Total = $" + receipt.totalPrice() + " for " + receipt.totalNumberOfProductsInCart() + " products.");
+        System.out.println("Total = $" + receipt.totalPriceOfReceipt() + " for " + receipt.totalNumberOfProductsInCart() + " products.");
 
         System.out.println("---------------------");
         System.out.println("---------------------");
         System.out.println(" ");
     }
 
-    int totalEarnings() {
-        // TODO go through each receipt and sum up all income and return result
-        return 0;
+    void printAllReceipts() {
+        System.out.println("*Z rapport running - Printing copy of today's receipts:*");
+        System.out.println(" ");
+
+        for (Receipt receipt : receipts) {
+            receipt.printReceipt();
+        }
+    }
+
+    void printTotalEarnings() {
+        int tempCounter = 0;
+
+        for (Receipt receipt : receipts) {
+            tempCounter += receipt.totalPriceOfReceipt();
+        }
+
+        System.out.println("The gross total for today's shopping is $" + tempCounter + ".");
     }
 }
