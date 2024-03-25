@@ -1,4 +1,4 @@
-package kegj002.game.monster_battle.src;
+package projects.game.monster_battle.src;
 
 import java.util.ArrayList;
 import java.util.Random;

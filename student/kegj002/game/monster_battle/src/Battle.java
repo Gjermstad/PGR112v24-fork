@@ -1,4 +1,6 @@
-package kegj002.game.monster_battle.src;
+package projects.game.monster_battle.src;
+
+import java.util.ArrayList;
 
 public class Battle
 {
