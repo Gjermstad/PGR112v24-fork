@@ -90,12 +90,17 @@ public class CashRegister
             //# 6) return true
 
             customer.clearCustomerCart();
+
+            System.out.println("The customer takes the grocery bags and leave the store.");
+            System.out.println(" ");
             return true;
+
 
         } else {
             System.out.println("The customer screams as she realises she don't have enough money to pay for everything.");
             System.out.println("She yells to the world and complains about all the prices rising too much for people.");
             System.out.println("The customer then flees the store sobbing hard...");
+            System.out.println(" ");
 
             //# 7) else:
             return false;
@@ -136,7 +141,7 @@ public class CashRegister
     }
 
     void printAllReceipts() {
-        System.out.println("*Z rapport running - Printing copy of today's receipts:*");
+        System.out.println("*Z rapport running - Printing a copy of all of today's receipts:*");
         System.out.println(" ");
 
         for (Receipt receipt : receipts) {
