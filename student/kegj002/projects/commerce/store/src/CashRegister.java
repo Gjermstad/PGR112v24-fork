@@ -134,11 +134,6 @@ public class CashRegister
         System.out.println("---------------------");
         System.out.println(" ");
     }
-    void printReceipt() {
-        for (Receipt receipt : getReceipts()) {
-            System.out.println(receipt);
-        }
-    }
 
     int totalEarnings() {
         // TODO go through each receipt and sum up all income and return result
