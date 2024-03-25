@@ -43,12 +43,22 @@ public class Receipt
         return totalValue;
     }
 
-    int totalProducts() {
+    int totalDifferentProducts() {
         return this.products.size();
+    }
+
+    int totalNumberOfProductsInCart() {
+        int tempCounter = 0;
+
+        for (Product product : products.keySet()) {
+            tempCounter += this.products.get(product);
+        }
+
+        return tempCounter;
     }
 
     @Override
     public String toString() {
-        return "Receipt #" + this.receiptNumber + " [" + this.totalProducts() + " products; total $" + this.totalPrice() + "]" ;
+        return "Receipt #" + this.receiptNumber + " [" + this.totalDifferentProducts() + " products; total $" + this.totalPrice() + "]" ;
     }
 }
