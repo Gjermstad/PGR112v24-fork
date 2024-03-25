@@ -23,6 +23,11 @@ public class Game
         // The player battles against the monsters until:
         // - all monsters have dies
         // - or the player dies
+
+        System.out.println("*Game starting*");
+
+        battle.playerAttacks();
+
     }
 
 
