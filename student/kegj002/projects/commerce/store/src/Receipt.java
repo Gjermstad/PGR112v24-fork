@@ -1,6 +1,7 @@
 package kegj002.projects.commerce.store.src;
 
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class Receipt
@@ -29,7 +30,7 @@ public class Receipt
     }
 
     //# Methods
-    int totalPrice() {
+    int totalPriceOfReceipt() {
         int totalValue = 0;
 
         for (Product product : products.keySet()) {
@@ -57,8 +58,28 @@ public class Receipt
         return tempCounter;
     }
 
+    // Prints a receipt already created by the cashregister, can't be used for created a new receipt
+    void printReceipt() {
+
+        System.out.println("---------------------");
+        System.out.println("------RECEIPT#" + getReceiptNumber() + "------");
+
+        for (Map.Entry<Product, Integer> product : products.entrySet()) {
+            Integer amount = products.get(product);
+
+            System.out.println(product.getValue() + "x " + product.getKey().getName() + " á $" + product.getKey().getPrice());
+        }
+        System.out.println("---------------------");
+
+        System.out.println("Total = $" + totalPriceOfReceipt() + " for " + totalNumberOfProductsInCart() + " products.");
+
+        System.out.println("---------------------");
+        System.out.println("---------------------");
+        System.out.println(" ");
+    }
+
     @Override
     public String toString() {
-        return "Receipt #" + this.receiptNumber + " [" + this.totalDifferentProducts() + " products; total $" + this.totalPrice() + "]" ;
+        return "Receipt #" + this.receiptNumber + " [" + this.totalDifferentProducts() + " products; total $" + this.totalPriceOfReceipt() + "]" ;
     }
 }
