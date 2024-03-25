@@ -27,7 +27,6 @@ public class Game
         System.out.println("*Game starting*");
 
         battle.playerAttacks();
-
     }
 
 
@@ -48,6 +47,8 @@ public class Game
     int getMonstersLeft() {
         return this.getMonsters().size();
     }
+    
+    //# Setter-methods
 
 
     //# Static-methods

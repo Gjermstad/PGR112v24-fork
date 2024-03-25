@@ -28,6 +28,11 @@ public class Battle
     void playerAttacks() {
         int playerDamage = player.getDamage();
         System.out.println("The Player attacks the " + getCurrentMonster() + " and does " + playerDamage + " damage.");
-        System.out.println("The " + getCurrentMonster() + " have " + getCurrentMonster().getHealth() + " HP left.");
+
+        if (getCurrentMonster().damage(playerDamage)) {
+            System.out.println("The " + getCurrentMonster() + " have " + getCurrentMonster().getHealth() + " HP left.");
+        } else {
+            getCurrentMonster().entityDied();
+        }
     }
 }

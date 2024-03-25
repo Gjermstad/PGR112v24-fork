@@ -35,6 +35,8 @@ public abstract class Entity
         );
     }
 
+    //# Setter-methods
+
 
     //# Methods
     boolean damage(int value) {
@@ -47,9 +49,8 @@ public abstract class Entity
         return this.getHealth() > 0;
     }
 
-    void entityDead() {
+    void entityDied() {
         System.out.println("Entity died - you should override this method in sub-class");
     }
 
-    abstract void entityDied();
 }
