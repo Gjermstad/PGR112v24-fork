@@ -50,4 +50,6 @@ public abstract class Entity
     void entityDead() {
         System.out.println("Entity died - you should override this method in sub-class");
     }
+
+    abstract void entityDied();
 }
