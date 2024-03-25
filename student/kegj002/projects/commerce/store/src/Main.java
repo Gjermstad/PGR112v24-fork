@@ -43,21 +43,23 @@ public class Main
         System.out.println("After a while the customer now has " + customer1.getShoppingCart().size() + " products in their cart.");
 
         //# 3) Process the buying of products via the cash register
-        boolean success = store.getCashRegister().processCustomer(customer1);
+        store.getCashRegister().processCustomer(customer1);
+
+        Customer customer2 = new Customer(500);
+        customer2.putProductInCart(apple, 3);
+        customer2.putProductInCart(banana, 2);
+
+        store.getCashRegister().processCustomer(customer2);
 
         //# 4) If the sale is successful,
         // make sure a receipt is generated and added to the cash register
-
-        // ---
-
         // Process two customers and afterward print out all receipts
+
+        store.getCashRegister().printAllReceipts();
+
         // and the total income earned
 
-        for (Receipt receipt : store.getCashRegister().getReceipts()) {
-            System.out.println(receipt);
-        }
-
-        System.out.println(store.getCashRegister().totalEarnings());
+        store.getCashRegister().printTotalEarnings();
 
         // Extra:
         // 1) Create custom exceptions for certain situations,
