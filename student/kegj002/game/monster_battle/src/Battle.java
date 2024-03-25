@@ -1,7 +1,5 @@
 package projects.game.monster_battle.src;
 
-import java.util.ArrayList;
-
 public class Battle
 {
     //# Fields
@@ -29,10 +27,25 @@ public class Battle
         int playerDamage = player.getDamage();
         System.out.println("The Player attacks the " + getCurrentMonster() + " and does " + playerDamage + " damage.");
 
-        if (getCurrentMonster().damage(playerDamage)) {
+        if (getCurrentMonster().takeDamage(playerDamage)) {
             System.out.println("The " + getCurrentMonster() + " have " + getCurrentMonster().getHealth() + " HP left.");
         } else {
             getCurrentMonster().entityDied();
+        }
+    }
+
+    void monsterAttacks() {
+        int monsterDamage = monster.getDamage();
+        System.out.println("The Monster attacks the player for " + monsterDamage + " damage.");
+        player.takeDamage(monsterDamage);
+        System.out.println("The Player has " + player.getHealth() + " HP left.");
+    }
+
+    boolean checkIfDead() {
+        if (!getCurrentMonster().isDead() || !player.isDead()) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

@@ -39,7 +39,7 @@ public abstract class Entity
 
 
     //# Methods
-    boolean damage(int value) {
+    boolean takeDamage(int value) {
         this.health = Math.max(0, this.getHealth() - value);
 
         return this.isDead();
