@@ -10,4 +10,9 @@ public class Player extends Entity
     void entityDied() {
         System.out.println("The Player dies!");
     }
+
+    @Override
+    public String toString() {
+        return "Player";
+    }
 }
