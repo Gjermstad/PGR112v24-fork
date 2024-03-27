@@ -36,10 +36,16 @@ public abstract class Entity
     }
 
     //# Setter-methods
-
+    void takeDamage(int damage) {
+        if (this.health > damage) {
+            this.health -= damage;
+        } else if (this.health <= damage) {
+            this.health = 0;
+        }
+    }
 
     //# Methods
-    boolean takeDamage(int value) {
+    boolean damage(int value) {
         this.health = Math.max(0, this.getHealth() - value);
 
         return this.isDead();

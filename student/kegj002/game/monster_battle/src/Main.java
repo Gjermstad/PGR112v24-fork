@@ -16,5 +16,6 @@ public class Main
         Game game = new Game(player, monsters);
 
         game.start();
+        game.runGame();
     }
 }

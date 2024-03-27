@@ -32,8 +32,40 @@ public class Game
     }
 
     void runGame() {
-        battle.playerAttacks();
-        battle.monsterAttacks();
+        while(getPlayer().isDead()) {
+
+            battle.playerAttacks();
+
+            if(monsters.getFirst().isDead()) {
+
+                System.out.println("*Monster is dead*...");
+
+                if(battle.getCurrentMonster().getHealth() == 0) {
+
+                    removeCurrentMonsterIfDead();
+
+                    Monster nextMonster = getNextMonster();
+                    if (nextMonster != null) {
+                        battle.setMonster(nextMonster);
+                    }
+
+                    announceNewMonster();
+                }
+
+                if(monsters.size() == 0) {
+                    System.out.println("You have conquered the forces of evil and slayed all their minons in this real.");
+                    break;
+                }
+            }
+
+            battle.monsterAttacks();
+
+            if(!getPlayer().isDead()) {
+                System.out.println("You have lost and the " + getMonsters().getFirst() + " dances on your corpse.");
+                break;
+            }
+
+        }
     }
 
 
@@ -65,11 +97,22 @@ public class Game
         return RNG.nextInt(max - min) + min;
     }
 
+    //# Methods
     void removeCurrentMonsterIfDead() {
-        if (getMonsters().getFirst().getHealth() == 0) {
-            monsters.removeFirst();
+        monsters.remove(0);
+        System.out.println("*Removes monster from ArrayList, new length is " + monsters.size() + ".*");
+    }
+
+    public Monster getNextMonster() {
+        if (!monsters.isEmpty()) {
+            return  monsters.get(0);
+        } else {
+            return null;
         }
     }
 
-
+    public void announceNewMonster() {
+        System.out.print("A new " + getMonsters().getFirst() + " enters the field. ");
+        System.out.println("This " + getMonsters().getFirst() + " has " + getMonsters().getFirst().getHealth() + " HP.");
+    }
 }

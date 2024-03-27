@@ -22,26 +22,41 @@ public class Battle
         return this.monster;
     }
 
+    //# Setter-methods
+    public void setMonster(Monster monster) {
+        this.monster = monster;
+    }
+
     //# Methods
     void playerAttacks() {
         int playerDamage = player.getDamage();
+
         System.out.println("The Player attacks the " + getCurrentMonster() + " and does " + playerDamage + " damage.");
 
-        if (getCurrentMonster().takeDamage(playerDamage)) {
+        if (getCurrentMonster().getHealth() > playerDamage) {
+            getCurrentMonster().takeDamage(playerDamage);
             System.out.println("The " + getCurrentMonster() + " have " + getCurrentMonster().getHealth() + " HP left.");
+
         } else {
             getCurrentMonster().entityDied();
+
         }
+
+        System.out.println("*Enemy health after attack: " + getCurrentMonster().getHealth() + " HP*");
     }
 
     void monsterAttacks() {
         int monsterDamage = monster.getDamage();
-        System.out.println("The Monster attacks the player for " + monsterDamage + " damage.");
+
+        System.out.println("The " + monster + " attacks the player for " + monsterDamage + " damage.");
+
         player.takeDamage(monsterDamage);
+
         System.out.println("The Player has " + player.getHealth() + " HP left.");
     }
 
     boolean checkIfDead() {
+
         if (!getCurrentMonster().isDead() || !player.isDead()) {
             return true;
         } else {
