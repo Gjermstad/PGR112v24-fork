@@ -25,11 +25,16 @@ public class Game
         // - or the player dies
 
         System.out.println("*Game starting*");
+        System.out.println("This game is between " + getPlayer() + " and " + getMonstersLeft() + " monsters/bosses.");
+        System.out.println(getPlayer() + " have " + getPlayer().getHealth() + " HP.");
+        System.out.println("First monster have " + getMonsters().getFirst().getHealth() + " HP.");
+        System.out.println("FIGHT!");
+    }
 
+    void runGame() {
         battle.playerAttacks();
         battle.monsterAttacks();
     }
-
 
 
     //# Getter-methods
@@ -49,9 +54,6 @@ public class Game
         return this.getMonsters().size();
     }
 
-    //# Setter-methods
-
-
     //# Static-methods
     static int getRandomDamage(int max) {
         return Game.getRandomDamage(0, max);
@@ -62,4 +64,12 @@ public class Game
 
         return RNG.nextInt(max - min) + min;
     }
+
+    void removeCurrentMonsterIfDead() {
+        if (getMonsters().getFirst().getHealth() == 0) {
+            monsters.removeFirst();
+        }
+    }
+
+
 }
