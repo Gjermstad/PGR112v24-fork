@@ -7,6 +7,11 @@ public class Boss extends Monster
     }
 
     @Override
+    void entityDied() {
+        System.out.println("The Boss dies!");
+    }
+
+    @Override
     public String toString() {
         return "Boss";
     }

@@ -1,5 +1,6 @@
 package projects.game.monster_battle.src;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -32,28 +33,18 @@ public class Game
     }
 
     void runGame() {
-        while(getPlayer().isDead()) {
 
+        while (battle.getPlayer().getHealth() > 0) {
             battle.playerAttacks();
 
-            if(monsters.getFirst().isDead()) {
+            if (battle.getCurrentMonster().getHealth() <= 0) {
+                removeCurrentMonsterIfDead();
 
-                System.out.println("*Monster is dead*...");
-
-                if(battle.getCurrentMonster().getHealth() == 0) {
-
-                    removeCurrentMonsterIfDead();
-
-                    Monster nextMonster = getNextMonster();
-                    if (nextMonster != null) {
-                        battle.setMonster(nextMonster);
-                    }
-
+                if (monsters.size() > 0) {
+                    sendNextMonsterToBattle();
                     announceNewMonster();
-                }
-
-                if(monsters.size() == 0) {
-                    System.out.println("You have conquered the forces of evil and slayed all their minons in this real.");
+                } else {
+                    System.out.println("You Win! Congratulations!");
                     break;
                 }
             }
@@ -64,7 +55,6 @@ public class Game
                 System.out.println("You have lost and the " + getMonsters().getFirst() + " dances on your corpse.");
                 break;
             }
-
         }
     }
 
@@ -100,7 +90,11 @@ public class Game
     //# Methods
     void removeCurrentMonsterIfDead() {
         monsters.remove(0);
-        System.out.println("*Removes monster from ArrayList, new length is " + monsters.size() + ".*");
+        // System.out.println("*Removes monster from ArrayList, new length is " + monsters.size() + ".*");
+    }
+
+    void sendNextMonsterToBattle() {
+        battle.setMonster(monsters.getFirst());
     }
 
     public Monster getNextMonster() {

@@ -33,16 +33,14 @@ public class Battle
 
         System.out.println("The Player attacks the " + getCurrentMonster() + " and does " + playerDamage + " damage.");
 
+        monster.damage(playerDamage);
+
         if (getCurrentMonster().getHealth() > playerDamage) {
             getCurrentMonster().takeDamage(playerDamage);
             System.out.println("The " + getCurrentMonster() + " have " + getCurrentMonster().getHealth() + " HP left.");
-
         } else {
             getCurrentMonster().entityDied();
-
         }
-
-        System.out.println("*Enemy health after attack: " + getCurrentMonster().getHealth() + " HP*");
     }
 
     void monsterAttacks() {
