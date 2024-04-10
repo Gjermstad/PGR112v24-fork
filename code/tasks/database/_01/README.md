@@ -5,6 +5,14 @@
 
 ---
 
+Oppgaven gjøres i denne mappen:
+
+> `code/tasks/database/terminal/src`
+
+Så her må du opprette en `src`-mappe inne i `terminal`-pakken.
+
+---
+
 ## Oppgave 1
 
 - Opprett en klasse som heter `Account`.
@@ -80,4 +88,4 @@ Lag en konstruktør i `Account`-klassen som tar inn brukernavn og passord, hvor 
 
 ---
 
-> Fortsettelse følger i et annet oppgavesett!
+> Fortsettelse følger i `../_02/README.md`!
