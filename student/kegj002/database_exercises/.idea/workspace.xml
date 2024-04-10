@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a376ee4-30a0-4e7c-801f-717f66a2a0c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/JavaProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4a376ee4-30a0-4e7c-801f-717f66a2a0c2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +52,7 @@
 }</component>
   <component name="RunManager" selected="Application.JavaProgram">
     <configuration name="JavaProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="JavaProgram" />
+      <option name="MAIN_CLASS_NAME" value="DB_00.JavaProgram" />
       <module name="database_exercises" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -96,6 +93,7 @@
       <workItem from="1712162604122" duration="599000" />
       <workItem from="1712304650739" duration="1641000" />
       <workItem from="1712647327091" duration="17000" />
+      <workItem from="1712746963305" duration="22000" />
     </task>
     <servers />
   </component>
